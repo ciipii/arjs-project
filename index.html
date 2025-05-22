@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>AR.js + A-Frame Sample</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.2.1/aframe/build/aframe-ar.min.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden">
+    <a-scene embedded arjs>
+      <!-- Marker Hiro dengan objek Sphere -->
+      <a-marker preset="hiro">
+        <!-- Mengubah a-box menjadi a-sphere -->
+        <a-sphere position="0 0.5 0" radius="0.5" color="#FF5733" material="opacity: 0.8"> </a-sphere>
+      </a-marker>
+
+      <!-- Marker Kanji dengan Cylinder -->
+      <a-marker preset="kanji">
+        <a-cylinder position="0 0.5 0" radius="0.3" height="1" color="#3399FF"> </a-cylinder>
+      </a-marker>
+
+      <!-- Marker Custom dengan Model 3D -->
+      <a-marker type="pattern" url="pattern-marker.patt">
+        <a-entity gltf-model="#treeModel" scale="0.5 0.5 0.5" position="0 0 0"> </a-entity>
+      </a-marker>
+
+      <!-- Kamera AR.js -->
+      <a-entity camera></a-entity>
+
+      <!-- Assets -->
+      <a-assets>
+        <a-asset-item id="treeModel" src="tree.glb"></a-asset-item>
+      </a-assets>
+    </a-scene>
+  </body>
+</html>
